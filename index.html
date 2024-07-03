@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Terminal</title>
 </head>
 <body>
     <div class="container_quiz_gl">
+        <button onclick="PageNumber('default','Выберите вашу вопрос!')" class="home_but"><span class="material-symbols-rounded">home</span></button>
         <span class="text_header_quiz">Выберите ваш вопрос!</span>
         <div class="container_buts" id="default">
             <button onclick="PageNumber('question-1_1','Выберите вашу запись!')" class="buts-quiz color-1">Записаться на обучение!</button>
@@ -26,10 +28,16 @@
         </div>
         
         <div class="container_buts" id="question-1_1">
-            <div class="text-quiz">Запись №1<br>
-                Запись №2<br>
-                Запись №3<br>
-                Запись №4<br></div>
+            <div class="modal_container_content">
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+                <a href="" class="link_quiz_modal">Запись 1</a>
+            </div>
             <button onclick="PageNumber('question-1_2_2','')" class="buts-quiz color-dark">Без записи.</button>
         </div>
         <div class="container_buts" id="question-1_2_2">
