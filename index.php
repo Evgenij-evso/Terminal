@@ -29,25 +29,21 @@
         
         <div class="container_buts" id="question-1_1">
             <div class="modal_container_content">
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
-                <a href="" class="link_quiz_modal">Запись 1</a>
+                <?php
+                include_once __DIR__ . '/create_lead.php';
+                get_field_func();
+                // var_dump($list_subname);
+                foreach($list_subname as $subname){
+                    // var_dump($subname);
+                    echo '<a href="" class="link_quiz_modal">' . $subname . '</a>';
+                }
+                ?>
                 <a href="" class="link_quiz_modal">Запись 1</a>
             </div>
             <button onclick="PageNumber('question-1_2_2','')" class="buts-quiz color-dark">Без записи.</button>
         </div>
-        <div class="container_buts" id="question-1_2_2">
-            <div class="text-quiz">Введите ваш номер телефона:</div>
-            <input class="inputs-quiz" type="text" name="" id="" placeholder="+7(000)-00-00">
-            <div class="text-quiz">Введите ваше ФИО</div>
-            <input class="inputs-quiz" type="text" name="" id="" placeholder="Фамилия">
-            <input class="inputs-quiz" type="text" name="" id="" placeholder="Имя">
-            <input class="inputs-quiz" type="text" name="" id="" placeholder="Отчество">
-            <button  class="buts-quiz color-dark">Отправить</button>
+        <div class="container_buts form-invite" id="question-1_2_2">
+            <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"800788",hash:"e4af880028b8459888fe5ffa7c82ef66",locale:"ru"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script><script id="amoforms_script_800788" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1720106055"></script>
         </div>
         <div class="container_buts" id="question-3">
             <button onclick="PageNumber('question-3_1','')" class="buts-quiz color-1">Все отлично!</button>
@@ -59,6 +55,8 @@
             </div>
         </div>
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

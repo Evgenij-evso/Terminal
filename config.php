@@ -4,8 +4,8 @@ use AmoCRM\Client\AmoCRMApiClient;
 
 include_once __DIR__ . '/vendor/autoload.php';
 
-$clientId = 'a2e96c9a-3966-41f0-b135-0e58cb8b8cf5';
-$clientSecret = 'MhTSENIVyDKhyWut3ARXAEpPLEAEpxjbyzXZF2Js34iri7Mjl3u9vLRnSCQqy1RQ';
+$clientId = '0a80f143-fe82-4b48-9ee4-41b7cc187d62';
+$clientSecret = 'a07KIwdGc5Mrq3VFs9vozu23Zvx2ubD14n8OHL6mZnzcnTLg43zULRueZeGMQBeO';
 $redirectUri = 'https://kooleso.online/terminal';
 
 $apiClient = new AmoCRMApiClient($clientId, $clientSecret, $redirectUri);

@@ -18,3 +18,14 @@ function PageNumber(name,value){
     page.style.display = 'flex';
     console.log('start')
 }
+
+function PHPFunc(value,name){
+    $.ajax({
+        method: "POST",
+        url: "edit_amocrm_task.php",
+        data: "id=" + value + "&name=" + name,
+      })
+        .done(function( response ) {
+            PageNumber('question-1_1','Выберите вашу запись!');
+        });
+}
