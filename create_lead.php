@@ -147,11 +147,59 @@ function get_list_task() {
     // Возвращаем ответ
     return $response;
 }
-
-function get_list_lead($id_lead) {
+function success_task($id) {
     global $accessToken;
 
-    $path = '/api/v4/leads/'.$id_lead;
+    $path = '/api/v4/tasks/' . $id;
+    $url = "https://autoschoolkoleso.amocrm.ru" . $path;
+
+    $data = '{
+        "is_completed": true,
+        "result": {
+            "text": "Клиент пришел."
+        }
+    }';
+    $headers = [
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer ' . $accessToken->access_token
+    ];
+    
+    $curlHeaders = [];
+    foreach ($headers as $name => $value) {
+        $curlHeaders[] = $name . ": " . $value;
+    }
+
+    $method = 'PATCH';
+
+    // echo $method . ' ' . $url . PHP_EOL;
+    foreach ($curlHeaders as $header) {
+        // echo $header . PHP_EOL;
+    }
+    
+    // Инициализируем сеанс cURL
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST => $method,
+        CURLOPT_POSTFIELDS => $data,
+        CURLOPT_HTTPHEADER => $curlHeaders,
+        CURLOPT_CONNECTTIMEOUT => 0,
+        CURLOPT_TIMEOUT => 5,
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    $info = curl_getinfo($curl);
+    curl_close($curl);
+    
+    // Возвращаем ответ
+    return $info['http_code'];
+}
+function get_list_lead($id_task) {
+    global $accessToken;
+
+    $path = '/api/v4/leads/'.$id_task;
     $url = "https://autoschoolkoleso.amocrm.ru" . $path;
 
     // Инициализируем сеанс cURL
@@ -163,6 +211,7 @@ function get_list_lead($id_lead) {
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer ' . $accessToken->access_token
     ]);
+    
     // Выполняем запрос и получаем ответ
     $response = curl_exec($ch);
     
@@ -197,7 +246,7 @@ function get_field_func(){
                 }
             }
             $list_subname[] = $name_subname;
-            $list_subname_id[] = $value_->entity_id;
+            $list_subname_id[] = $value_->id;
             $name_subname = '';
         }
     }

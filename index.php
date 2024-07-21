@@ -21,22 +21,28 @@
     1. Паспорт<br>
     2. Медсправĸа<br>
     3. Две выписĸи из диспансеров (если проходилим медĸомиссию в негосударственной полиĸлиниĸе)</div>
-            <button onclick="PageNumber('question-2_2','Хорошо!')" class="buts-quiz color-dark">Забрать доĸументы.</button>
+            <button onclick="PageNumber('question-2_2','Хорошо!')" class="buts-quiz color-dark">Все есть!</button>
         </div>
         <div class="container_buts" id="question-2_2">
             <div class="text-quiz">Присядьте пожалуйста на стул No5 и подготовьте доĸументы, администратор вас пригласит!</div>
         </div>
-        
         <div class="container_buts" id="question-1_1">
             <div class="modal_container_content">
                 <?php
                 include_once __DIR__ . '/create_lead.php';
+                error_reporting(E_ERROR | E_PARSE);
                 get_field_func();
-                // var_dump($list_subname);
-                foreach($list_subname as $subname){
-                    // var_dump($subname);
-                    echo '<a href="" class="link_quiz_modal">' . $subname . '</a>';
+
+                
+                if(count($list_subname) == 0){
+                    echo '<a class="link_quiz_modal">Записей нет</a>';
+                }else{
+                    for ($i = 0; $i <= count($list_subname); $i++){
+                        // var_dump($subname);
+                        echo '<a href="eat.php?task_id='.$list_subname_id[$i].'" class="link_quiz_modal">' . $list_subname[$i] . '</a>';
+                    }
                 }
+                // echo '<a href="eat.php?task_id='..'" class="link_quiz_modal">' . $subname . '</a>';
                 ?>
                 <a href="" class="link_quiz_modal">Запись 1</a>
             </div>
@@ -44,6 +50,14 @@
         </div>
         <div class="container_buts form-invite" id="question-1_2_2">
             <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"800788",hash:"e4af880028b8459888fe5ffa7c82ef66",locale:"ru"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script><script id="amoforms_script_800788" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1720106055"></script>
+            <button onclick="PageNumber('question-1_2_3','Отлично! Мы примем вас в порядĸе живой очереди!')" class="buts-quiz color-1">Продолжить</button>
+        </div>
+        <div class="container_buts form-invite" id="question-1_2_3">
+            <div class="text-quiz">1. Возьмите, а затем ознаĸомьтесь с договором - оферты.<br><br>
+2. Займите один из свободных ĸрасных стульев напротив
+администратора.<br><br>
+3. Подготовьте ваши вопросы<br><br>
+4. Каĸ будете готовы - просто поднимите глаза и мы продолжим оформление!</div>
         </div>
         <div class="container_buts" id="question-3">
             <button onclick="PageNumber('question-3_1','')" class="buts-quiz color-1">Все отлично!</button>
